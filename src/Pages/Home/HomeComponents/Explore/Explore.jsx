@@ -1,5 +1,10 @@
 import "./explore.css";
 const Explore = () => {
+  //   const { data: country, isLoading } = useFilterAllCountryQuery();
+  //   if (isLoading) {
+  //     return <>loading...</>;
+  //   }
+  //   console.log(country);
   return (
     <div className="w-11/12 mx-auto my-10 ">
       <div>

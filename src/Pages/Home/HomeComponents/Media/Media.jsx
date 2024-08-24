@@ -2,7 +2,7 @@ const Media = () => {
   return (
     <div className="w-11/12 mx-auto my-10">
       <div>
-        <h1 className="text-4xl   text-center py-5  font-bold">
+        <h1 className="text-4xl   text-center py-10  font-bold">
           Media Library
         </h1>
       </div>
