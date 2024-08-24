@@ -1,0 +1,14 @@
+.exploreText {
+    border-left: 20px solid transparent;
+    border-right: 20px solid transparent;
+    border-top: 20px solid #396ce0;
+    content: "";
+    display: block;
+    left: calc(50% - 20px);
+    opacity: 0;
+    position: absolute;
+    top: 100%;
+    transform: translateY(-15px);
+    transition: all .3s ease-in-out;
+    visibility: hidden;
+}

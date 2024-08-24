@@ -1,0 +1,52 @@
+.services {
+    position: relative;
+
+}
+
+.services {
+    align-items: flex-start;
+    background-color: var(white);
+    border-radius: 5px;
+    cursor: pointer;
+    display: flex;
+    padding: 25px 0 20px 15px;
+    transition: all .2s linear;
+    background-image: url(https://archive.visathing.com/_nuxt/img/d0f4acf.webp) no-repeat;
+    ;
+}
+
+/* .services:hover p {
+    color: white;
+
+} */
+
+/* .services::before {
+    background: var(--color-gradient) no-repeat;
+     --color-primary: #2042cf;
+    --color-gradient: linear-gradient(81.88deg, #2042cf 6.24%, #579cf4 93.76%);
+    border-radius: 50%;
+    content: "";
+    height: 50px;
+    left: 15px;
+    line-height: 45px;
+    position: absolute;
+    top: 25px;
+    transition: all .3s linear;
+    width: 50px;
+    /* Ensure this is behind the text */
+
+
+
+/* .services:hover::before {
+    background: linear-gradient(39.53deg, rgba(32, 66, 207, .9), rgba(87, 156, 244, .9)), url(https://archive.visathing.com/_nuxt/img/d0f4acf.webp) no-repeat;
+    background-position: 50%;
+    background-size: cover;
+    border-radius: 5px;
+    content: "";
+    height: 100%;
+    left: 0;
+    line-height: 45px;
+    position: absolute;
+    top: 0;
+    width: 100%;
+} */
