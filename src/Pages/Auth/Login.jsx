@@ -1,9 +1,4 @@
-
-
-
-
 import { FaGoogle, FaTwitter, FaFacebook } from "react-icons/fa6";
-import Swal from "sweetalert2";
 
 import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
@@ -11,13 +6,11 @@ import logo from "/7bfeedd.png";
 import LoginBanner from "../../components/Banner/LoginBanner";
 
 import useAuth from "../../Hooks/useAuth";
-
+import Swal from "sweetalert2";
 
 const Login = () => {
-
-    const { signIn, googleSignIn } = useAuth();
-  const [demologin, setLogin] = useState()
-
+  const { signIn, googleSignIn } = useAuth();
+  const [demologin, setLogin] = useState();
 
   const handleLogin = (e) => {
     e.preventDefault();
@@ -49,19 +42,18 @@ const Login = () => {
 
   return (
     <div className="flex flex-col justify-center min-h-screen">
-
       <div className="">
-
-
         <div className="flex flex-col md:flex-row items-center justify-center   mb-20 ">
           <div className="w-[28%]  ">
-      <LoginBanner/>
+            <LoginBanner />
           </div>
           <div className=" shadow-md  w-[28%] items-center p-8  rounded-r-xl ">
-            <Link to={'/'}>      <img className="  mx-auto" src={logo} alt="" /></Link>
+            <Link to={"/"}>
+              {" "}
+              <img className="  mx-auto" src={logo} alt="" />
+            </Link>
 
             <div className=" space-y-3">
-
               <h1 className="text-3xl md:text-4xl  font-medium text-rose-600 ">
                 Login
               </h1>
@@ -88,24 +80,14 @@ const Login = () => {
             </button> */}
               </div>
 
-              <div >
-
-              </div>
-
+              <div></div>
             </div>
 
             <div className="divider">Or continue with</div>
 
-            <form
-              onSubmit={handleLogin}
-
-              action=""
-              className="space-y-3"
-            >
+            <form onSubmit={handleLogin} action="" className="space-y-3">
               <div className="space-y-1 text-sm">
-                <label className="block text-rose-700">
-                  User Email
-                </label>
+                <label className="block text-rose-700">User Email</label>
                 <input
                   type="email"
                   name="email"
@@ -116,9 +98,7 @@ const Login = () => {
                 />
               </div>
               <div className="space-y-1 text-sm">
-                <label  className="block text-rose-700">
-                  Password
-                </label>
+                <label className="block text-rose-700">Password</label>
                 <input
                   type="password"
                   name="password"
@@ -159,7 +139,6 @@ const Login = () => {
         </div>
       </div>
     </div>
-
   );
 };
 
