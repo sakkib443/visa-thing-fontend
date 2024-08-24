@@ -103,9 +103,9 @@ const Navbar = () => {
             </svg>
           </label>
           <div className="flex">
-            <button className="  px-4 border-r-2  mr-4 border-stone-400">
+            <Link to={'/login'}><button className="  px-4 border-r-2  mr-4 border-stone-400">
               Login
-            </button>
+            </button></Link>
             <button className="  p-0 ">Register</button>
           </div>
         </div>
