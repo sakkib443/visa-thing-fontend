@@ -8,7 +8,16 @@ const createApi = baseApi.injectEndpoints({
         method: "GET",
       }),
     }),
+    getSingleCountry: builder.query({
+      query: (id) => {
+        console.log("find id", id);
+        return {
+          url: `/visainfo/${id}`,
+          method: "GET",
+        };
+      },
+    }),
   }),
 });
 
-export const { useGetAllCountryQuery } = createApi;
+export const { useGetAllCountryQuery, useGetSingleCountryQuery } = createApi;
