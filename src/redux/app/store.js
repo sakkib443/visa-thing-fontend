@@ -1,13 +1,13 @@
 import { configureStore } from "@reduxjs/toolkit";
 import { setupListeners } from "@reduxjs/toolkit/query";
 import { baseApi, baseApiCountry } from "./baseApi"; // Import both APIs
-import countryReducer from "../features/cetagory/catergorySlice";
+import countrisReducer from "../features/cetagory/countrisSlice";
 
 export const store = configureStore({
   reducer: {
     [baseApi.reducerPath]: baseApi.reducer,
     [baseApiCountry.reducerPath]: baseApiCountry.reducer, // Add the second API reducer
-    countris: countryReducer,
+    countris: countrisReducer,
   },
   middleware: (getDefaultMiddleware) =>
     getDefaultMiddleware()
