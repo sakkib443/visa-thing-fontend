@@ -1,8 +1,12 @@
 import { createBrowserRouter } from "react-router-dom";
 import Root from "../Layout/Root";
 import Home from "../Pages/Home/Home/Home";
-import Login from "../Pages/Auth/Login";
 import Requirements from "../Pages/Requirements/Requirments";
+import Register from "../Pages/Auth/Register/Register";
+import Login from "../Pages/Auth/Login/Login";
+import ResetPassword from "../Pages/Auth/ResetPassword/ResetPassword";
+import SetNewPasswordForm from "../Pages/Auth/SetNewPasswordForm/SetNewPasswordForm";
+
 
 const router = createBrowserRouter([
   {
@@ -14,7 +18,7 @@ const router = createBrowserRouter([
         element: <Home></Home>,
       },
       {
-        path: `requirements/:country/student-visa`,
+        path: `requirements/student-visa`,
         element: <Requirements />,
       },
       {
@@ -32,8 +36,20 @@ const router = createBrowserRouter([
     ],
   },
   {
+    path: "/register",
+    element: <Register />,
+  },
+  {
     path: "/login",
     element: <Login />,
+  },
+  {
+    path: "/send-reset-password-link",
+    element: <ResetPassword />,
+  },
+  {
+    path: "/set-new-password-form",
+    element: <SetNewPasswordForm />,
   },
 ]);
 
