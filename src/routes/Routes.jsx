@@ -6,6 +6,7 @@ import Register from "../Pages/Auth/Register/Register";
 import Login from "../Pages/Auth/Login/Login";
 import ResetPassword from "../Pages/Auth/ResetPassword/ResetPassword";
 import SetNewPasswordForm from "../Pages/Auth/SetNewPasswordForm/SetNewPasswordForm";
+import About from "../Pages/About/About/About";
 
 
 const router = createBrowserRouter([
@@ -15,7 +16,11 @@ const router = createBrowserRouter([
     children: [
       {
         path: "/",
-        element: <Home></Home>,
+        element: <Home />,
+      },
+      {
+        path: "/about",
+        element: <About />,
       },
       {
         path: `requirements/student-visa`,
