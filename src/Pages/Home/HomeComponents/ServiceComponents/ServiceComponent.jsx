@@ -9,7 +9,7 @@ const ServiceComponent = () => {
           <h2 className="text-5xl font-semibold text-center">Services</h2>
         </div>
         <div className="grid my-10 grid-cols-1 lg:grid-cols-3 gap-5 ">
-          <div className="flex gap-3 hover:bg-gradient-to-r from-[#2042cf] from-10% via-[#579cf4] via-30% to-emerald-500 to-90% px-3 hover:text-white  bg-white primary-gredient transition duration-500 z-50 rounded services">
+          <div className="md:hover:animate-bounce-slow flex gap-3 hover:bg-gradient-to-r from-sky-100 via-sky-200 to-sky-300 px-4 hover:text-black bg-white transition duration-500 z-50 rounded shadow-md services">
             <div className="">
               <AiFillInteraction className="text-6xl p-2 rounded-full border border-red-400 hover:border-wh" />
             </div>
@@ -28,7 +28,7 @@ const ServiceComponent = () => {
               </div>
             </div>
           </div>
-          <div className="flex gap-3 hover:bg-gradient-to-r from-[#2042cf] from-10% via-[#579cf4] via-30% to-emerald-500 to-90% px-3 hover:text-white  bg-white primary-gredient transition duration-500 z-50 rounded services">
+          <div className="md:hover:animate-bounce-slow flex gap-3 hover:bg-gradient-to-r from-sky-100 via-sky-200 to-sky-300 px-4 hover:text-black bg-white transition duration-500 z-50 rounded shadow-md services">
             <div className="">
               <AiFillInteraction className="text-6xl p-2 rounded-full border border-red-400 hover:border-wh" />
             </div>
@@ -47,7 +47,7 @@ const ServiceComponent = () => {
               </div>
             </div>
           </div>
-          <div className="flex gap-3 hover:bg-gradient-to-r from-[#2042cf] from-10% via-[#579cf4] via-30% to-emerald-500 to-90% px-3 hover:text-white  bg-white primary-gredient transition duration-500 z-50 rounded services">
+          <div className="md:hover:animate-bounce-slow flex gap-3 hover:bg-gradient-to-r from-sky-100 via-sky-200 to-sky-300 px-4 hover:text-black bg-white transition duration-500 z-50 rounded shadow-md services">
             <div className="">
               <AiFillInteraction className="text-6xl p-2 rounded-full border border-red-400 hover:border-wh" />
             </div>
@@ -66,7 +66,7 @@ const ServiceComponent = () => {
               </div>
             </div>
           </div>
-          <div className="flex gap-3 hover:bg-gradient-to-r from-[#2042cf] from-10% via-[#579cf4] via-30% to-emerald-500 to-90% px-3 hover:text-white  bg-white primary-gredient transition duration-500 z-50 rounded services">
+          <div className="md:hover:animate-bounce-slow flex gap-3 hover:bg-gradient-to-r from-sky-100 via-sky-200 to-sky-300 px-4 hover:text-black bg-white transition duration-500 z-50 rounded shadow-md services">
             <div className="">
               <AiFillInteraction className="text-6xl p-2 rounded-full border border-red-400 hover:border-wh" />
             </div>
@@ -85,7 +85,7 @@ const ServiceComponent = () => {
               </div>
             </div>
           </div>
-          <div className="flex gap-3 hover:bg-gradient-to-r from-[#2042cf] from-10% via-[#579cf4] via-30% to-emerald-500 to-90% px-3 hover:text-white  bg-white primary-gredient transition duration-500 z-50 rounded services">
+          <div className="md:hover:animate-bounce-slow flex gap-3 hover:bg-gradient-to-r from-sky-100 via-sky-200 to-sky-300 px-4 hover:text-black bg-white transition duration-500 z-50 rounded shadow-md services">
             <div className="">
               <AiFillInteraction className="text-6xl p-2 rounded-full border border-red-400 hover:border-wh" />
             </div>
@@ -104,7 +104,7 @@ const ServiceComponent = () => {
               </div>
             </div>
           </div>
-          <div className="flex gap-3 hover:bg-gradient-to-r from-[#2042cf] from-10% via-[#579cf4] via-30% to-emerald-500 to-90% px-3 hover:text-white  bg-white primary-gredient transition duration-500 z-50 rounded services">
+          <div className="md:hover:animate-bounce-slow flex gap-3 hover:bg-gradient-to-r from-sky-100 via-sky-200 to-sky-300 px-4 hover:text-black bg-white transition duration-500 z-50 rounded shadow-md services">
             <div className="">
               <AiFillInteraction className="text-6xl p-2 rounded-full border border-red-400 hover:border-wh" />
             </div>
