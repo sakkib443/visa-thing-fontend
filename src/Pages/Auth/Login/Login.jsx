@@ -95,9 +95,9 @@ const Login = () => {
             </button>
           </form>
           <p className="text-md text-center pt-2 sm:px-6 text-rose-700">
-            Already have an account?
-            <Link to="/login" className="underline">
-              Login
+            Don&apos;t have an account?
+            <Link to="/register" className="underline">
+              Register
             </Link>
           </p>
         </div>
