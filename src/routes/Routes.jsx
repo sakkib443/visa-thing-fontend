@@ -7,6 +7,7 @@ import Login from "../Pages/Auth/Login/Login";
 import ResetPassword from "../Pages/Auth/ResetPassword/ResetPassword";
 import SetNewPasswordForm from "../Pages/Auth/SetNewPasswordForm/SetNewPasswordForm";
 import About from "../Pages/About/About/About";
+import Contact from "../Pages/Contact/Contact/Contact";
 
 
 const router = createBrowserRouter([
@@ -21,6 +22,10 @@ const router = createBrowserRouter([
       {
         path: "/about",
         element: <About />,
+      },
+      {
+        path: "/contact",
+        element: <Contact />,
       },
       {
         path: `requirements/student-visa`,

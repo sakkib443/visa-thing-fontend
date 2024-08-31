@@ -4,28 +4,11 @@ import logo from "../../../../public/7bfeedd.png";
 const Navbar = () => {
   const navOption = (
     <>
+      {/* Home */}
       <li>
         <Link>Home</Link>
       </li>
-      <li>
-        <Link to="/about">About</Link>
-      </li>
-      <li>
-        <details>
-          <summary>Our Media</summary>
-          <ul className="p-2 w-44">
-            <li>
-              <Link>Youtube Video</Link>
-            </li>
-            <li>
-              <Link>Facebook Video</Link>
-            </li>
-            <li>
-              <Link>Reels Video</Link>
-            </li>
-          </ul>
-        </details>
-      </li>
+      {/* Our Services */}
       <li>
         <details>
           <summary>Our Service</summary>
@@ -50,6 +33,16 @@ const Navbar = () => {
             </li>
           </ul>
         </details>
+      </li>
+      {/* About */}
+      <li>
+        <Link to="/about">About</Link>
+      </li>
+      {/* Contact */}
+      <li>
+
+        <Link to="/contact">Contact</Link>
+
       </li>
     </>
   );
