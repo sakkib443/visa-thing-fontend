@@ -9,7 +9,7 @@ import { MdOutlinePhoneInTalk } from "react-icons/md";
 
 const Header = () => {
   return (
-    <div className="bg-[#2B2D42]  text-white flex justify-center md:justify-between gap-5  px-5">
+    <div className="bg-[#2B2D42]  text-white flex justify-center md:justify-around gap-5  px-5">
       <div className=" py-2 text-center font-semibold  font-poppins flex gap-5">
         <Link to="#">
           <FaFacebook />
