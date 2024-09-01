@@ -55,75 +55,74 @@ const router = createBrowserRouter([
         path: `requirements/:country/family-visa`,
         element: <Requirements />,
       },
-      {
-        path: "dashboard/admin",
-        element: <AdminDashboard />,
-        children: [
-          {
-            path: "admin-profile",
-            element: <AdminProfile />
-          },
-          {
-            path: "admin-pending-applications",
-            element: <PendingApplications />
-          },
-          {
-            path: "admin-approved-applications",
-            element: <ApprovedApplications />
-          },
-          {
-            path: "admin-declined-applications",
-            element: <DeclinedApplications />
-          },
-        ]
-      },
-      {
-        path: "dashboard/user",
-        element: <UserDashboard />,
-        children: [
-          {
-            path: "user-profile",
-            element: <UserProfile />
-          },
-          {
-            path: "user-pending-applications",
-            element: <UserPendingApplications />
-          },
-          {
-            path: "user-approved-applications",
-            element: <UserApprovedApplications />
-          },
-          {
-            path: "user-declined-applications",
-            element: <UserDeclinedApplications />
-          },
-        ]
-      },
-      {
-        path: "/register",
-        element: <Register />,
-      },
-      {
-        path: "/login",
-        element: <Login />,
-      },
-      {
-        path: "/send-reset-password-link",
-        element: <ResetPassword />,
-      },
-      {
-        path: "/set-new-password-form",
-        element: <SetNewPasswordForm />,
-      },
-      {
-        path: "/apply-now",
-        element: <ApplicationForm />,
-      },
-      {
-        path: "*",
-        element: <NotFound />, // Render NotFound component within MainLayout
-      },
     ],
+  },
+  {
+    path: "dashboard/admin",
+    element: <AdminDashboard />,
+    children: [
+      {
+        path: "admin-profile",
+        element: <AdminProfile />
+      },
+      {
+        path: "admin-pending-applications",
+        element: <PendingApplications />
+      },
+      {
+        path: "admin-approved-applications",
+        element: <ApprovedApplications />
+      },
+      {
+        path: "admin-declined-applications",
+        element: <DeclinedApplications />
+      },
+    ]
+  },
+  {
+    path: "dashboard/user",
+    element: <UserDashboard />,
+    children: [
+      {
+        path: "user-profile",
+        element: <UserProfile />
+      },
+      {
+        path: "user-pending-applications",
+        element: <UserPendingApplications />
+      },
+      {
+        path: "user-approved-applications",
+        element: <UserApprovedApplications />
+      },
+      {
+        path: "user-declined-applications",
+        element: <UserDeclinedApplications />
+      },
+    ]
+  },
+  {
+    path: "/register",
+    element: <Register />,
+  },
+  {
+    path: "/login",
+    element: <Login />,
+  },
+  {
+    path: "/send-reset-password-link",
+    element: <ResetPassword />,
+  },
+  {
+    path: "/set-new-password-form",
+    element: <SetNewPasswordForm />,
+  },
+  {
+    path: "/apply-now",
+    element: <ApplicationForm />,
+  },{
+    path: "*",
+    element:<NotFound/>
   }
 ]);
 
