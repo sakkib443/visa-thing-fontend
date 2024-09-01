@@ -4,7 +4,7 @@ const Appointment = () => {
     return (
         <section className="py-16 bg-gray-100">
             <div className="container mx-auto px-4 text-center">
-                <h2 className="text-3xl font-bold text-gray-800">Get VISAThing! Free Appointment</h2>
+                <h2 className="text-4xl font-semibold italic">Get VISAThing! Free Appointment</h2>
                 <p className="text-lg text-gray-600 mt-4 max-w-md mx-auto">
                     Make your appointment with VISAThing through the appointment portal. Click on appointment, choose your visa type, and pick an available slot. Attend the VISAThing office on time with the required documents. Stay updated for smooth visa processing with VISAThing.
                 </p>

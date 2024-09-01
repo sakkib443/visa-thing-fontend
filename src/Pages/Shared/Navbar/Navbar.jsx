@@ -8,47 +8,80 @@ const Navbar = () => {
       <li>
         <Link>Home</Link>
       </li>
+
+
       {/* Our Services */}
       <li>
         <details>
-          <summary>Our Service</summary>
+          <summary>Our Services</summary>
           <ul className="p-2 w-44">
+
             <li>
-              <Link>Visa Processing Consultancy</Link>
+              <Link to="#">Visa Processing</Link>
             </li>
+
             <li>
-              <Link>Visa Processing in Bangladesh</Link>
+              <Link to="#">Air Ticketing</Link>
             </li>
+
             <li>
-              <Link>Visa Processing in India</Link>
+              <Link to="#">Hotel Booking</Link>
             </li>
+
             <li>
-              <Link>E-Visa Processing</Link>
+              <Link to="#">Package Tours</Link>
             </li>
+
             <li>
-              <Link>One Way Collection</Link>
-            </li>
-            <li>
-              <Link>Document Legalization</Link>
+              <Link to="#">Study Abroad</Link>
             </li>
           </ul>
         </details>
       </li>
+      {/* Other Services */}
+      <li>
+        <details>
+          <summary>Other Services</summary>
+          <ul className="p-2 w-44">
+            <li>
+              <Link>Tour Guide Booking</Link>
+            </li>
+            <li>
+              <Link>Cruise Trip Booking</Link>
+            </li>
+            <li>
+              <Link>Hajj and Umrah Booking</Link>
+            </li>
+            <li>
+              <Link>Tourist Car Booking</Link>
+            </li>
+            <li>
+              <Link>International Bus and Train Ticket</Link>
+            </li>
+            <li>
+              <Link>Medical Visa Processing</Link>
+            </li>
+            <li>
+              <Link>Visa Access From Bangladesh</Link>
+            </li>
+          </ul>
+        </details>
+      </li>
+
       {/* About */}
       <li>
         <Link to="/about">About</Link>
       </li>
       {/* Contact */}
       <li>
-
         <Link to="/contact">Contact</Link>
-
       </li>
+
     </>
   );
   return (
-    <div className="w-9/12 mx-auto relative z-50">
-      <div className="navbar bg-base-100 flex flex-col lg:flex-row">
+    <div className="mx-auto relative z-50">
+      <div className="navbar bg-base-100 flex ">
         <div className="navbar-start">
           <div className="dropdown">
             <div tabIndex={0} role="button" className="btn btn-ghost lg:hidden">
@@ -74,29 +107,14 @@ const Navbar = () => {
               {navOption}
             </ul>
           </div>
-          <img src={logo} alt="" />
+          <img src={logo} alt="Logo" />
         </div>
         <div className="navbar-center hidden lg:flex">
           <ul className="menu menu-horizontal px-1">{navOption}</ul>
         </div>
         <div className="navbar-end flex justify-center items-center">
-          <label className="input input-bordered flex items-center gap-2">
-            <input type="text" className="grow " placeholder="Search" />
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              viewBox="0 0 16 16"
-              fill="currentColor"
-              className="h-4 w-4 opacity-70"
-            >
-              <path
-                fillRule="evenodd"
-                d="M9.965 11.026a5 5 0 1 1 1.06-1.06l2.755 2.754a.75.75 0 1 1-1.06 1.06l-2.755-2.754ZM10.5 7a3.5 3.5 0 1 1-7 0 3.5 3.5 0 0 1 7 0Z"
-                clipRule="evenodd"
-              />
-            </svg>
-          </label>
-          <div className="flex">
-            <Link to={'/login'}><button className="px-4 border-r-2  mr-4 border-stone-400">
+          <div className="flex items-center justify-center text-[15px] font-bold">
+            <Link to={'/login'}><button className="px-4 mr-4 border-stone-400">
               Login
             </button></Link>
             <Link to={'/register'}><button>

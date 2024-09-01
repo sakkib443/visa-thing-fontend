@@ -96,7 +96,7 @@ const Hero = () => {
               </div>
             )}
           </div>
-          <div className="bg-gray-100 py-6 lg:p-12 text-start text-[18px] rounded-lg w-9/12 lg:w-auto">
+          <div className="bg-slate-300 py-6 lg:p-12 text-start text-[18px] rounded-lg w-9/12 lg:w-auto">
             <div className="lg:flex justify-between items-center px-12">
               <div className="fom lg:pr-10">
                 <p className="px-1 py-2 lg:py-3 font-semibold">Citizen Of</p>

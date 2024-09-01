@@ -11,7 +11,7 @@ const ApplicationForm = () => {
     return (
         <div className="mx-auto p-4 flex flex-col items-center justify-center gap-5 bg-slate-400">
             <div className="flex gap-2 items-center justify-center my-2">
-                <h2 className="text-4xl font-semibold">Apply Now</h2>
+                <h2 className="text-4xl font-semibold italic">Apply Now</h2>
                 <GiNotebook className="text-4xl" />
             </div>
 
