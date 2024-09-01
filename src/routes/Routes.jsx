@@ -17,6 +17,8 @@ import DeclinedApplications from "../Pages/AdminDashboard/DeclinedApplications/D
 import UserPendingApplications from "../Pages/UserDashboard/UserPendingApplications/UserPendingApplications";
 import UserDeclinedApplications from "../Pages/UserDashboard/UserDeclinedApplications/UserDeclinedApplications";
 import ApplicationForm from "../components/ApplicationForm/ApplicationForm";
+import AdminProfile from "../Pages/AdminDashboard/AdminProfile/AdminProfile";
+import UserProfile from "../Pages/UserDashboard/UserProfile/UserProfile";
 
 
 const router = createBrowserRouter([
@@ -59,6 +61,10 @@ const router = createBrowserRouter([
     element: <AdminDashboard />,
     children: [
       {
+        path: "admin-profile",
+        element: <AdminProfile />
+      },
+      {
         path: "admin-pending-applications",
         element: <PendingApplications />
       },
@@ -76,6 +82,10 @@ const router = createBrowserRouter([
     path: "dashboard/user",
     element: <UserDashboard />,
     children: [
+      {
+        path: "user-profile",
+        element: <UserProfile />
+      },
       {
         path: "user-pending-applications",
         element: <UserPendingApplications />

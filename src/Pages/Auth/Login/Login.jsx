@@ -8,14 +8,19 @@ import LoginBanner from "../../../components/Banner/LoginBanner";
 const Login = () => {
   const [showPassword, setShowPassword] = useState(false);
   const navigate = useNavigate()
-  const { register, handleSubmit, formState: { errors } } = useForm();
+  const { register, handleSubmit, formState: { errors } } = useForm({
+    defaultValues: {
+      email: "admin@visa.com",
+      password: "123456"
+    }
+  });
   const onSubmit = data => {
     console.log(data);
     //demo purpose
     if (data.email === "admin@visa.com") {
-      navigate('/dashboard/admin')
+      navigate('/dashboard/admin/admin-profile')
     } else if (data.email === "user@visa.com") {
-      navigate('/dashboard/user')
+      navigate('/dashboard/user/user-profile')
     }
   };
 

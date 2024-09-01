@@ -15,6 +15,9 @@ const AdminDashboard = () => {
             <div className={`bg-blue-800 text-white w-64 p-4 lg:relative lg:w-64 ${isSidebarOpen ? "block" : "hidden"} lg:block`}>
                 <ul className="space-y-4">
                     <li>
+                        <Link to="admin-profile" className="block p-2 hover:bg-blue-600 rounded">Profile</Link>
+                    </li>
+                    <li>
                         <Link to="admin-pending-applications" className="block p-2 hover:bg-blue-600 rounded">Pending Applications</Link>
                     </li>
                     <li>

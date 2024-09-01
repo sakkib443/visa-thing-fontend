@@ -15,6 +15,9 @@ const UserDashboard = () => {
             <div className={`bg-blue-800 text-white w-64 p-4 lg:relative lg:w-64 ${isSidebarOpen ? "block" : "hidden"} lg:block`}>
                 <ul className="space-y-4">
                     <li>
+                        <Link to="user-profile" className="block p-2 hover:bg-blue-600 rounded">Profile</Link>
+                    </li>
+                    <li>
                         <Link to="user-pending-applications" className="block p-2 hover:bg-blue-600 rounded">Pending Applications</Link>
                     </li>
                     <li>
@@ -24,7 +27,7 @@ const UserDashboard = () => {
                         <Link to="user-declined-applications" className="block p-2 hover:bg-blue-600 rounded">Declined Applications</Link>
                     </li>
                     <li>
-                       
+
                         <Link to="/" className="p-2 hover:bg-blue-600 rounded flex gap-2 items-center"> <FaHome /> Go to Home</Link>
                     </li>
                 </ul>

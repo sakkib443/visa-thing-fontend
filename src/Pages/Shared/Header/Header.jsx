@@ -29,12 +29,8 @@ const Header = () => {
       </div>
       <div className="font-palanquin text-sm hidden md:flex  gap-5 ">
         <div className="flex gap-2 justify-center items-center">
-          <MdOutlineEmail />
-          <p>cr@visathing.com</p>
-        </div>
-        <div className="flex gap-2 justify-center items-center">
           <MdOutlinePhoneInTalk />
-          <p>+880 196 777 7788 (Hotline)</p>
+          <p>+880 01712-114770 (Hotline)</p>
         </div>
       </div>
     </div>
