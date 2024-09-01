@@ -35,7 +35,7 @@ const AdminDashboard = () => {
                         <Link to="admin-approved-applications" className="flex items-center gap-2 p-2 hover:bg-blue-600 rounded"><FaCheckCircle />Approved Applications</Link>
                     </li>
                     <li>
-                        <Link to="admin-declined-applications" className="flex items-center gap-2 p-2 hover:bg-blue-600 rounded"><TbXboxXFilled className="size-5" />Declined Applications</Link>
+                        <Link to="admin-declined-applications" className="flex items-center gap-2 p-2 hover:bg-blue-600 rounded"><TbXboxXFilled className="size-6" />Declined Applications</Link>
                     </li>
                     <li>
 
