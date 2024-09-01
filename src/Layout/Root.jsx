@@ -6,7 +6,7 @@ import ScrollToTop from "../components/ScrollToTop/ScrollToTop";
 
 const Root = () => {
   return (
-    <div>
+    <div className="font-montserrat">
       <ScrollToTop />
       <Header />
       <Navbar />

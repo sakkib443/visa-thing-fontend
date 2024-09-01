@@ -8,6 +8,14 @@ import ResetPassword from "../Pages/Auth/ResetPassword/ResetPassword";
 import SetNewPasswordForm from "../Pages/Auth/SetNewPasswordForm/SetNewPasswordForm";
 import About from "../Pages/About/About/About";
 import Contact from "../Pages/Contact/Contact/Contact";
+import AdminDashboard from "../Pages/AdminDashboard/AdminDashboard/AdminDashboard";
+import ApprovedApplications from "../Pages/AdminDashboard/ApprovedApplications/ApprovedApplications";
+import UserApprovedApplications from "../Pages/UserDashboard/UserApprovedApplications/UserApprovedApplications";
+import UserDashboard from "../Pages/UserDashboard/UserDashboard/UserDashboard";
+import PendingApplications from "../Pages/AdminDashboard/PendingApplications/PendingApplications";
+import DeclinedApplications from "../Pages/AdminDashboard/DeclinedApplications/DeclinedApplications";
+import UserPendingApplications from "../Pages/UserDashboard/UserPendingApplications/UserPendingApplications";
+import UserDeclinedApplications from "../Pages/UserDashboard/UserDeclinedApplications/UserDeclinedApplications";
 
 
 const router = createBrowserRouter([
@@ -44,6 +52,42 @@ const router = createBrowserRouter([
         element: <Requirements />,
       },
     ],
+  },
+  {
+    path: "dashboard/admin",
+    element: <AdminDashboard />,
+    children: [
+      {
+        path: "admin-pending-applications",
+        element: <PendingApplications />
+      },
+      {
+        path: "admin-approved-applications",
+        element: <ApprovedApplications />
+      },
+      {
+        path: "admin-declined-applications",
+        element: <DeclinedApplications />
+      },
+    ]
+  },
+  {
+    path: "dashboard/user",
+    element: <UserDashboard />,
+    children: [
+      {
+        path: "user-pending-applications",
+        element: <UserPendingApplications />
+      },
+      {
+        path: "user-approved-applications",
+        element: <UserApprovedApplications />
+      },
+      {
+        path: "user-declined-applications",
+        element: <UserDeclinedApplications />
+      },
+    ]
   },
   {
     path: "/register",
