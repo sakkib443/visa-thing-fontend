@@ -7,6 +7,12 @@ export default {
         "primary-gredient":
           "linear-gradient(81.88deg, #2042cf 6.24%, #579cf4 93.76%",
       },
+      animation: {
+        "bounce-slow": "bounce 2s linear infinite",
+      },
+      fontFamily: {
+        montserrat: ["Montserrat", "sans-serif"],
+      },
     },
   },
 
