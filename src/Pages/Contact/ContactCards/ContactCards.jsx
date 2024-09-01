@@ -10,7 +10,7 @@ const ContactCards = () => {
         <ContactCard
           icon={"office"}
           title={"Head Office Address"}
-          description={" 1st Floor, Homestead Gulshan Link Tower, DCC TA-99, Gulshan-Badda, Link Road, Gulshan-1, Dhaka-1212"}
+          description={"Suite-28, Level-4, Bagdad Shopping Complex, Mirpur-1, Dhaka."}
         />
         <ContactCard
           icon={"tree"}
@@ -20,12 +20,12 @@ const ContactCards = () => {
         <ContactCard
           icon={"phone"}
           title={"Phone Numbers"}
-          description={"Tel: +880 1967 777788 (Hotline)"}
+          description={"Tel: +880 01712-114770 (Hotline)"}
         />
         <ContactCard
           icon={"mail"}
           title={"Email us at"}
-          description={"cr@visathing.com"}
+          description={"visapro@gmail.com"}
         />
       </div>
     </div>

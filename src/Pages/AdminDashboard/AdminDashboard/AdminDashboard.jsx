@@ -1,4 +1,4 @@
-import  { useState } from "react";
+import { useState } from "react";
 import { Outlet, Link } from "react-router-dom";
 import { FaBars, FaHome } from "react-icons/fa";
 import { CgProfile } from "react-icons/cg";
@@ -29,13 +29,13 @@ const AdminDashboard = () => {
                     </li>
                     <li>
                         <Link to="admin-pending-applications" className="flex items-center gap-2 p-2 hover:bg-blue-600 rounded"><IoCloudDownloadOutline />
-                        Pending Applications</Link>
+                            Pending Applications</Link>
                     </li>
                     <li>
                         <Link to="admin-approved-applications" className="flex items-center gap-2 p-2 hover:bg-blue-600 rounded"><FaCheckCircle />Approved Applications</Link>
                     </li>
                     <li>
-                        <Link to="admin-declined-applications" className="flex items-center gap-2 p-2 hover:bg-blue-600 rounded"><TbXboxXFilled className="size-5"/>Declined Applications</Link>
+                        <Link to="admin-declined-applications" className="flex items-center gap-2 p-2 hover:bg-blue-600 rounded"><TbXboxXFilled className="size-5" />Declined Applications</Link>
                     </li>
                     <li>
 
