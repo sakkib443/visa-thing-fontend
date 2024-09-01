@@ -35,6 +35,7 @@ const Navbar = () => {
             <li>
               <Link to="#">Study Abroad</Link>
             </li>
+
           </ul>
         </details>
       </li>
@@ -80,9 +81,10 @@ const Navbar = () => {
     </>
   );
   return (
-    <div className="mx-auto relative z-50">
+    <div className="w-[80%] mx-auto relative z-50">
       <div className="navbar bg-base-100 flex ">
         <div className="navbar-start">
+          
           <div className="dropdown">
             <div tabIndex={0} role="button" className="btn btn-ghost lg:hidden">
               <svg
