@@ -13,7 +13,7 @@ const Explore = () => {
           Explore Your Visa
         </h1>
       </motion.div>
-      <div className="grid grid-flow-row-dense grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 my-10 gap-5 ">
+      <div className="grid grid-flow-row-dense grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 my-10 px-5 gap-5 ">
         {[
           { title: "Visa Free", countries: 12 },
           { title: "E-Visa", countries: 12 },

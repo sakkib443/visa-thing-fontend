@@ -1,4 +1,4 @@
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { useState } from "react";
 import { useForm } from "react-hook-form";
 import { AiFillEye, AiFillEyeInvisible } from "react-icons/ai";
@@ -7,11 +7,16 @@ import LoginBanner from "../../../components/Banner/LoginBanner";
 
 const Login = () => {
   const [showPassword, setShowPassword] = useState(false);
-
+  const navigate = useNavigate()
   const { register, handleSubmit, formState: { errors } } = useForm();
   const onSubmit = data => {
     console.log(data);
-    // handle form submission
+    //demo purpose
+    if (data.email === "admin@visa.com") {
+      navigate('/dashboard/admin')
+    } else if (data.email === "user@visa.com") {
+      navigate('/dashboard/user')
+    }
   };
 
   return (

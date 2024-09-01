@@ -16,6 +16,7 @@ import PendingApplications from "../Pages/AdminDashboard/PendingApplications/Pen
 import DeclinedApplications from "../Pages/AdminDashboard/DeclinedApplications/DeclinedApplications";
 import UserPendingApplications from "../Pages/UserDashboard/UserPendingApplications/UserPendingApplications";
 import UserDeclinedApplications from "../Pages/UserDashboard/UserDeclinedApplications/UserDeclinedApplications";
+import ApplicationForm from "../components/ApplicationForm/ApplicationForm";
 
 
 const router = createBrowserRouter([
@@ -105,6 +106,10 @@ const router = createBrowserRouter([
     path: "/set-new-password-form",
     element: <SetNewPasswordForm />,
   },
+  {
+    path: "/apply-now",
+    element: <ApplicationForm />,
+  }
 ]);
 
 export default router;

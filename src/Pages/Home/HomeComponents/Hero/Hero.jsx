@@ -11,7 +11,7 @@ import {
   getVisaInfo,
   VisasType,
 } from "../../../../redux/features/cetagory/countrisSlice";
-import { useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 
 const Hero = () => {
   const navigate = useNavigate();
@@ -98,14 +98,14 @@ const Hero = () => {
           </div>
           <div className="bg-gray-100 py-6 lg:p-12 text-start text-[18px] rounded-lg w-9/12 lg:w-auto">
             <div className="lg:flex justify-between items-center px-12">
-              <div className="from lg:pr-10">
+              <div className="fom lg:pr-10">
                 <p className="px-1 py-2 lg:py-3 font-semibold">Citizen Of</p>
                 <div>
                   <select
                     {...register("banngladesh")}
-                    className="select select-primary w-full max-w-xs"
+                    className="select select-primary w-full"
                   >
-                    <option value="" disabled selected>
+                    <option  value="" disabled selected>
                       Bangladesh
                     </option>
                   </select>
@@ -116,7 +116,7 @@ const Hero = () => {
                 <div>
                   <select
                     {...register("filterCountry")}
-                    className="select select-primary w-full max-w-xs"
+                    className="select select-primary w-full"
                     required
                     onChange={handleCountryChange} // Handle change to fetch data
                   >
@@ -138,7 +138,7 @@ const Hero = () => {
                     {...register("visa")}
                     disabled={!selectedCountry || visaTypes?.length === 0}
                     required
-                    className="select select-primary w-full max-w-xs"
+                    className="select select-primary w-full"
                   >
                     <option value="" disabled selected>
                       Select visa category
@@ -151,12 +151,23 @@ const Hero = () => {
                   </select>
                 </div>
               </div>
-              <div className="check flex justify-center items-center lg:pt-12 mt-4 lg:mt-0">
-                <input
-                  type="submit"
-                  value="Check Requirements"
-                  className="btn btn-primary px-12"
-                />
+              <div>
+                {/* Check Requirements */}
+                <div className="check flex justify-center items-center lg:pt-12 mt-4 lg:mt-0">
+                  <input
+                    type="submit"
+                    value="Check Requirements"
+                    className="btn btn-primary px-12"
+                  />
+                </div>
+                {/* Apply Now */}
+                <Link to="/apply-now" className="check flex justify-center items-center lg:pt-12 mt-4 lg:mt-0">
+                  <input
+                    type="submit"
+                    value="Apply Now"
+                    className="btn btn-success px-12"
+                  />
+                </Link>
               </div>
             </div>
           </div>
