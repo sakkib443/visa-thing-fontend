@@ -1,8 +1,6 @@
 import { useSelector } from "react-redux";
 import { useParams } from "react-router-dom";
 import Hero from "../Home/HomeComponents/Hero/Hero";
-import BusinessVisaInfoComponent from "./BusinessVisa/BusinessVisa";
-import Faq from "./Faq";
 import VisaInfo from "./VisaInfo";
 
 const Requirements = () => {
@@ -61,7 +59,7 @@ const Requirements = () => {
             </div>
           </div>
           <div className="col-span-3">
-            <VisaInfo visaTypeInfo={visaTypeInfo} />
+            {visaTypeInfo && <VisaInfo visaTypeInfo={visaTypeInfo} />}
           </div>
           {/* Main Content Area */}
         </div>
