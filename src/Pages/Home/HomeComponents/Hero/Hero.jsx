@@ -26,7 +26,10 @@ const Hero = () => {
 
   const visaTypes = singleCountry?.data;
   const countries = countriesData ? countriesData.data : [];
-
+  const uniqueCountries = Array.from(
+    new Set(countries.map((item) => item.country))
+  );
+  console.log(uniqueCountries, countries);
   // Fetch visa information whenever visaTypes data changes
   useEffect(() => {
     if (visaTypes?.length > 0) {
@@ -66,16 +69,6 @@ const Hero = () => {
           console.error("Unknown visa type selected");
           break;
       }
-
-      // if (selectedVisa === "Student Visa") {
-      //   navigate(`/requirements/${findCountry}/student-visa`);
-      // } else if (selectedVisa === "Tourist Visa") {
-      //   navigate(`/requirements/${findCountry}/tourist-visa`);
-      // } else if (selectedVisa === "Family Visa") {
-      //   navigate(`/requirements/${findCountry}/family-visa`);
-      // } else if (selectedVisa === "Business Visa") {
-      //   navigate(`/requirements/${findCountry}/business-visa`);
-      // }
     }
   };
 
