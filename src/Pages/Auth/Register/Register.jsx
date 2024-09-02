@@ -1,4 +1,4 @@
-import { Link } from "react-router-dom";
+import { Link, Navigate, useNavigate } from "react-router-dom";
 import { useState } from "react";
 import { useForm } from "react-hook-form";
 import { AiFillEye, AiFillEyeInvisible } from "react-icons/ai";
@@ -7,10 +7,13 @@ import LoginBanner from "../../../components/Banner/LoginBanner";
 import { setCredentials } from "../../../redux/features/authentication/authSlice";
 import { useDispatch } from "react-redux";
 import { useSignupUserMutation } from "../../../redux/features/authentication/authApi";
+import Swal from "sweetalert2";
 
 const Register = () => {
     const [showPassword, setShowPassword] = useState(false);
     const [showConfirmPassword, setShowConfirmPassword] = useState(false);
+    const navigate = useNavigate()
+    // redux related
     const dispatch = useDispatch()
     const [signupUser] = useSignupUserMutation()
 
@@ -30,7 +33,17 @@ const Register = () => {
         try {
             const user = await signupUser(shortFormData).unwrap();
             console.log(user)
+            Swal.fire({
+                position: "center-center",
+                icon: "success",
+                title: "Registered Successfully",
+                showConfirmButton: false,
+                timer: 1000
+            });
             dispatch(setCredentials({ user, token: user.token }));
+            // TODO: Register is not giving token
+            //redirect to appropriate routes
+            navigate('/login')
         } catch (error) {
             console.error("Failed to signup: ", error);
         }

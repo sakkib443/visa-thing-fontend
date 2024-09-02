@@ -30,7 +30,7 @@ const UserDashboard = () => {
                         <Link to="user-approved-applications" className="flex items-center gap-2 p-2 hover:bg-blue-600 rounded"><FaCheckCircle className="size-5" />Approved Applications</Link>
                     </li>
                     <li>
-                        <Link to="user-declined-applications" className="flex items-center gap-2 p-2 hover:bg-blue-600 rounded"><TbXboxXFilled className="size-6" />Declined Applications</Link>
+                        <Link to="user-declined-applications" className="flex items-center gap-2 p-2 hover:bg-blue-600 rounded"><TbXboxXFilled className="size-5" />Declined Applications</Link>
                     </li>
                     <li>
 
