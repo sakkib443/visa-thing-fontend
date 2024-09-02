@@ -12,6 +12,16 @@ export const baseApi = createApi({
 
   endpoints: () => ({}),
 });
+const visaQuery = fetchBaseQuery({
+  baseUrl: "https://cms.visathing.com/api/",
+});
+export const baseVisaApi = createApi({
+  reducerPath: "baseVisaApi",
+
+  baseQuery: visaQuery,
+
+  endpoints: () => ({}),
+});
 const baseQueryCountry = fetchBaseQuery({
   baseUrl: "https://restcountries.com/v3.1/all",
 });

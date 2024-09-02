@@ -40,22 +40,22 @@ const router = createBrowserRouter([
         path: "/contact",
         element: <Contact />,
       },
+      // {
+      //   path: `requirements/student-visa`,
+      //   element: <Requirements />,
+      // },
       {
-        path: `requirements/student-visa`,
+        path: `requirements/:country/:visaSlug`,
         element: <Requirements />,
       },
-      {
-        path: `requirements/:country/business-visa`,
-        element: <Requirements />,
-      },
-      {
-        path: `requirements/:country/tourist-visa`,
-        element: <Requirements />,
-      },
-      {
-        path: `requirements/:country/family-visa`,
-        element: <Requirements />,
-      },
+      // {
+      //   path: `requirements/:country/tourist-visa`,
+      //   element: <Requirements />,
+      // },
+      // {
+      //   path: `requirements/:country/family-visa`,
+      //   element: <Requirements />,
+      // },
     ],
   },
   {
