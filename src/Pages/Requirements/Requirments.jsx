@@ -1,24 +1,32 @@
-import { useSelector } from "react-redux";
 import { useParams } from "react-router-dom";
 import Hero from "../Home/HomeComponents/Hero/Hero";
-import BusinessVisaInfoComponent from "./BusinessVisa/BusinessVisa";
-import Faq from "./Faq";
-import VisaInfo from "./VisaInfo";
+import CountryInfo from "./CountryInfo";
+import { useCountryDetailsQuery } from "../../redux/features/cetagory/Country/countryApi";
 
 const Requirements = () => {
-  const { country } = useParams();
-  // const visaInfo = useSelector((state) => state.countris?.visaInfo || []);
-  const visaTypeInfo = useSelector((state) => state.countris?.visa || []);
+  const { country, visaSlug } = useParams();
+  const { data, isLoading, isError, error } = useCountryDetailsQuery({
+    country,
+    visaSlug,
+  });
 
-  // console.log("visaInfo:", visaInfo?.visaType);
-  console.log("visaTypeInfo:", visaTypeInfo);
-  console.log("country:", country);
+  if (isLoading) {
+    return <>Loading...</>;
+  }
+
+  if (isError) {
+    return <>Error: {error.message}</>;
+  }
+
+  if (!data || !data.data) {
+    return <>No data available.</>;
+  }
 
   // Assuming you have parsed your JSON data into these structures:
-  const Visas = visaTypeInfo.find(
-    (info) => info.country.toLowerCase() === country.toLowerCase()
-  )?.businessVisa;
-  // console.log("visa", Visas);
+  // const Visas = visaTypeInfo.find(
+  //   (info) => info.country.toLowerCase() === country.toLowerCase()
+  // )?.businessVisa;
+  // // console.log("visa", Visas);
   return (
     <div className="min-h-screen bg-gray-100">
       {/* Hero Section */}
@@ -61,7 +69,8 @@ const Requirements = () => {
             </div>
           </div>
           <div className="col-span-3">
-            <VisaInfo visaTypeInfo={visaTypeInfo} />
+            {/* {visaTypeInfo && <VisaInfo visaTypeInfo={visaTypeInfo} />} */}
+            <CountryInfo data={data} />
           </div>
           {/* Main Content Area */}
         </div>

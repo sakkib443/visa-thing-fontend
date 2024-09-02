@@ -1,9 +1,6 @@
 import { useForm } from "react-hook-form";
 import heroImg from "../../../../../public/hero-img.jpg";
-import {
-  useGetAllCountryQuery,
-  useGetSingleCountryQuery,
-} from "../../../../redux/features/cetagory/categoryApi";
+import {} from "../../../../redux/features/cetagory/categoryApi";
 
 import { useState, useEffect } from "react";
 import { useDispatch } from "react-redux";
@@ -12,21 +9,40 @@ import {
   VisasType,
 } from "../../../../redux/features/cetagory/countrisSlice";
 import { Link, useNavigate } from "react-router-dom";
+import {
+  useGetVisaCountryQuery,
+  useSearchAllVisaCategoryQuery,
+} from "../../../../redux/features/cetagory/Country/countryApi";
 
 const Hero = () => {
   const navigate = useNavigate();
   const [selectedCountry, setSelectedCountry] = useState("");
-  const { data: countriesData } = useGetAllCountryQuery();
-  const { data: singleCountry, isLoading } = useGetSingleCountryQuery(
-    selectedCountry,
-    { skip: !selectedCountry }
-  );
+  // const { data: singleCountry, isLoading } = useGetSingleCountryQuery(
+  //   selectedCountry,
+  //   { skip: !selectedCountry }
+  // );
   const { register, handleSubmit } = useForm();
   const dispatch = useDispatch();
 
-  const visaTypes = singleCountry?.data;
-  const countries = countriesData ? countriesData.data : [];
+  const { data: visaSearchCategory, isLoading } = useSearchAllVisaCategoryQuery(
+    selectedCountry,
+    { skip: !selectedCountry }
+  );
+  // console.log("visa search", visaSearchCategory?.country.visacat);
 
+  // get all country list
+  const { data: countryLists } = useGetVisaCountryQuery(undefined);
+  // console.log("country list", countryList?.country_list);
+
+  const countryName = countryLists?.country_list;
+  const countryList = countryName ? Object.entries(countryName) : [];
+
+  const visaTypes = visaSearchCategory?.country?.visacat;
+  // const countries = countriesData ? countriesData.data : [];
+  // const uniqueCountries = Array.from(
+  //   new Set(countries.map((item) => item.country))
+  // );
+  // console.log(uniqueCountries, countries);
   // Fetch visa information whenever visaTypes data changes
   useEffect(() => {
     if (visaTypes?.length > 0) {
@@ -40,8 +56,11 @@ const Hero = () => {
   };
 
   const onSubmit = (formData) => {
+    // console.log("form data", formData);
     const findCountry = formData.filterCountry;
     const selectedVisa = formData.visa;
+    const [visaSlug, visaName] = selectedVisa.split(",");
+    // console.log(visaName);
     dispatch(VisasType(selectedVisa));
 
     if (findCountry && selectedVisa) {
@@ -49,33 +68,23 @@ const Hero = () => {
 
       // Navigate to the requirements page with selected country and visa type Tourist Visa
 
-      switch (selectedVisa) {
+      switch (visaName) {
         case "Student Visa":
-          navigate(`/requirements/${findCountry}/student-visa`);
+          navigate(`/requirements/${findCountry}/${visaSlug}`);
           break;
         case "Tourist Visa":
-          navigate(`/requirements/${findCountry}/tourist-visa`);
+          navigate(`/requirements/${findCountry}/${visaSlug}`);
           break;
-        case "Family Visa":
-          navigate(`/requirements/${findCountry}/family-visa`);
+        case "Family Visit Visa":
+          navigate(`/requirements/${findCountry}/${visaSlug}`);
           break;
         case "Business Visa":
-          navigate(`/requirements/${findCountry}/business-visa`);
+          navigate(`/requirements/${findCountry}/${visaSlug}`);
           break;
         default:
           console.error("Unknown visa type selected");
           break;
       }
-
-      // if (selectedVisa === "Student Visa") {
-      //   navigate(`/requirements/${findCountry}/student-visa`);
-      // } else if (selectedVisa === "Tourist Visa") {
-      //   navigate(`/requirements/${findCountry}/tourist-visa`);
-      // } else if (selectedVisa === "Family Visa") {
-      //   navigate(`/requirements/${findCountry}/family-visa`);
-      // } else if (selectedVisa === "Business Visa") {
-      //   navigate(`/requirements/${findCountry}/business-visa`);
-      // }
     }
   };
 
@@ -105,7 +114,7 @@ const Hero = () => {
                     {...register("banngladesh")}
                     className="select select-primary w-full"
                   >
-                    <option  value="" disabled selected>
+                    <option value="" disabled selected>
                       Bangladesh
                     </option>
                   </select>
@@ -123,9 +132,10 @@ const Hero = () => {
                     <option value="" disabled selected>
                       Select destination country
                     </option>
-                    {countries?.map((info) => (
-                      <option key={info._id} value={info.country}>
-                        {info.country}
+
+                    {countryList.map(([key, value]) => (
+                      <option key={key} value={key}>
+                        {value}
                       </option>
                     ))}
                   </select>
@@ -143,9 +153,9 @@ const Hero = () => {
                     <option value="" disabled selected>
                       Select visa category
                     </option>
-                    {visaTypes?.map((info) => (
-                      <option key={info._id} value={info.visaType}>
-                        {info.visaType}
+                    {visaTypes?.map((visa) => (
+                      <option key={visa.id} value={[visa.slug, visa.name]}>
+                        {visa.name}
                       </option>
                     ))}
                   </select>
@@ -161,7 +171,10 @@ const Hero = () => {
                   />
                 </div>
                 {/* Apply Now */}
-                <Link to="/apply-now" className="check flex justify-center items-center lg:pt-12 mt-4 lg:mt-0">
+                <Link
+                  to="/apply-now"
+                  className="check flex justify-center items-center lg:pt-12 mt-4 lg:mt-0"
+                >
                   <input
                     type="submit"
                     value="Apply Now"

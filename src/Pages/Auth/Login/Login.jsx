@@ -10,6 +10,7 @@ import { useSigninUserMutation } from "../../../redux/features/authentication/au
 
 const Login = () => {
   const [showPassword, setShowPassword] = useState(false);
+
   const navigate = useNavigate()
 
 
@@ -27,8 +28,6 @@ const Login = () => {
   // form submission
   const onSubmit = async (formData) => {
     console.log(formData);
-
-
 
     // login
     try {
@@ -62,12 +61,12 @@ const Login = () => {
   };
 
   return (
-    <div className="flex flex-col justify-center min-h-screen">
-      <div className="flex flex-col md:flex-row items-center justify-center">
-        <div className="w-full h-full md:w-[28%] hidden md:block">
+    <div className="  min-h-screen w-11/12 mx-auto">
+      <div className="grid grid-cols-2 items-center justify-center">
+        <div className=" h-full  hidden md:block">
           <LoginBanner />
         </div>
-        <div className="w-full md:w-[40%] p-8 rounded-xl shadow-md">
+        <div className=" p-8 rounded-xl shadow-md">
           <Link to={"/"}>
             <img className="mx-auto" src={logo} alt="logo" />
           </Link>
@@ -88,13 +87,15 @@ const Login = () => {
                   required: "Email is required",
                   pattern: {
                     value: /^[^@ ]+@[^@ ]+\.[^@ .]{2,}$/,
-                    message: "Email is not valid"
-                  }
+                    message: "Email is not valid",
+                  },
                 })}
                 placeholder="Email"
                 className="w-full px-4 py-3 rounded-md bg-rose-50"
               />
-              {errors.email && <p className="text-red-500">{errors.email.message}</p>}
+              {errors.email && (
+                <p className="text-red-500">{errors.email.message}</p>
+              )}
             </div>
             <div className="space-y-1 text-sm">
               <label className="block text-rose-700">Password</label>
@@ -105,8 +106,8 @@ const Login = () => {
                     required: "Password is required",
                     minLength: {
                       value: 6,
-                      message: "Password must be at least 6 characters long"
-                    }
+                      message: "Password must be at least 6 characters long",
+                    },
                   })}
                   placeholder="Password"
                   className="w-full px-4 py-3 rounded-md bg-rose-50"
@@ -122,10 +123,25 @@ const Login = () => {
                   )}
                 </span>
               </div>
-              {errors.password && <p className="text-red-500">{errors.password.message}</p>}
+              {errors.password && (
+                <p className="text-red-500">{errors.password.message}</p>
+              )}
             </div>
             <div className="flex justify-between items-center text-sm">
-              <Link to="/send-reset-password-link" className="text-xs underline text-rose-700">
+
+              <label className="flex items-center space-x-2 text-rose-700">
+                <input
+                  type="checkbox"
+                  {...register("rememberMe")}
+                  className="rounded-md bg-rose-50"
+                />
+                <span>Remember Me</span>
+              </label>
+              <Link
+                to="/send-reset-password-link"
+                className="text-xs underline text-rose-700"
+              >
+
                 Forgot Password?
               </Link>
             </div>
