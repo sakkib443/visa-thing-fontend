@@ -1,18 +1,18 @@
 import { Link } from "react-router-dom";
 import logo from "../../../../public/7bfeedd.png";
-import { useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
+import { clearCredentials } from "../../../redux/features/authentication/authSlice";
 
 const Navbar = () => {
+  const dispatch = useDispatch()
   const isLogin = useSelector(state => state?.auth?.user?.role)
   const role = useSelector(state => state?.auth?.user?.role)
   console.log(role)
 
-  //what should i do
-  // if login show profile
-  // if not login show register
-  /*
-  isLogin?<
-  */
+  const logOutHandler = () => {
+    console.log("clicked")
+    dispatch(clearCredentials())
+  }
 
   const navOption = (
     <>
@@ -96,6 +96,13 @@ const Navbar = () => {
         </li> :
           null
       }
+      {/* Conditional Login/Logout */}
+      {
+        isLogin ? <li><Link onClick={() => logOutHandler()} >Logout</Link> </li> : <li><Link to={'/login'}>
+          Login
+        </Link></li>
+      }
+
 
     </>
   );
@@ -134,13 +141,7 @@ const Navbar = () => {
           <ul className="menu menu-horizontal px-1">{navOption}</ul>
         </div>
         <div className="navbar-end flex justify-center items-center">
-          <div className="flex items-center justify-center text-[15px] font-bold">
-            {
-              isLogin ? <button className="px-4 mr-4 border-stone-400">Logout</button> : <Link to={'/login'}><button className="px-4 mr-4 border-stone-400">
-                Login
-              </button></Link>
-            }
-          </div>
+
         </div>
       </div>
     </div>
