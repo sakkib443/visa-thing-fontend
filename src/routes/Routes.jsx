@@ -20,6 +20,7 @@ import ApplicationForm from "../components/ApplicationForm/ApplicationForm";
 import AdminProfile from "../Pages/AdminDashboard/AdminProfile/AdminProfile";
 import UserProfile from "../Pages/UserDashboard/UserProfile/UserProfile";
 import NotFound from "../Pages/Shared/NotFound/NotFound";
+import ProtectedRoute from "../Pages/Shared/ProtectedRoute/ProtectedRoute";
 
 
 const router = createBrowserRouter([
@@ -59,7 +60,7 @@ const router = createBrowserRouter([
   },
   {
     path: "dashboard/admin",
-    element: <AdminDashboard />,
+    element: <ProtectedRoute><AdminDashboard /></ProtectedRoute>,
     children: [
       {
         path: "admin-profile",
@@ -120,9 +121,9 @@ const router = createBrowserRouter([
   {
     path: "/apply-now",
     element: <ApplicationForm />,
-  },{
+  }, {
     path: "*",
-    element:<NotFound/>
+    element: <NotFound />
   }
 ]);
 
