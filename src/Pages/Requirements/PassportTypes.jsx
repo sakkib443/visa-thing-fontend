@@ -2,7 +2,7 @@
 const PassportTypes = ({ passportTypes }) => {
   return (
     <div>
-      <h3 className="text-2xl bg-slate-300 p-2 font-semibold mb-3">
+      <h3 className="text-2xl my-5 bg-slate-300 p-2 font-semibold mb-3">
         Passport Types
       </h3>
       <ul className="list-disc list-inside text-gray-700">
