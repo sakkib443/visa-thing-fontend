@@ -1,7 +1,19 @@
 import { Link } from "react-router-dom";
 import logo from "../../../../public/7bfeedd.png";
+import { useSelector } from "react-redux";
 
 const Navbar = () => {
+  const isLogin = useSelector(state => state?.auth?.user?.role)
+  const role = useSelector(state => state?.auth?.user?.role)
+  console.log(role)
+
+  //what should i do
+  // if login show profile
+  // if not login show register
+  /*
+  isLogin?<
+  */
+
   const navOption = (
     <>
       {/* Home */}
@@ -77,6 +89,13 @@ const Navbar = () => {
       <li>
         <Link to="/contact">Contact</Link>
       </li>
+      {/* Conditional Dashboard */}
+      {
+        isLogin ? <li>
+          <Link to={`/dashboard/${role}/${role}-profile`}>Dashboard</Link>
+        </li> :
+          null
+      }
 
     </>
   );
@@ -84,7 +103,7 @@ const Navbar = () => {
     <div className="w-[80%] mx-auto relative z-50">
       <div className="navbar bg-base-100 flex ">
         <div className="navbar-start">
-          
+
           <div className="dropdown">
             <div tabIndex={0} role="button" className="btn btn-ghost lg:hidden">
               <svg
@@ -116,12 +135,11 @@ const Navbar = () => {
         </div>
         <div className="navbar-end flex justify-center items-center">
           <div className="flex items-center justify-center text-[15px] font-bold">
-            <Link to={'/login'}><button className="px-4 mr-4 border-stone-400">
-              Login
-            </button></Link>
-            <Link to={'/register'}><button>
-              Register
-            </button></Link>
+            {
+              isLogin ? <button className="px-4 mr-4 border-stone-400">Logout</button> : <Link to={'/login'}><button className="px-4 mr-4 border-stone-400">
+                Login
+              </button></Link>
+            }
           </div>
         </div>
       </div>
