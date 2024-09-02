@@ -15,22 +15,30 @@ const getAllCountry = baseVisaApi.injectEndpoints({
       }),
     }),
     countryDetails: builder.query({
-      query: (arts) => {
-        console.log("arts", arts);
+      query: ({ country, visaSlug }) => {
+        console.log("arts", { country, visaSlug });
         return {
-          // https://cms.visathing.com/api/country_view/algeria/family-visa
-          url: `country_view/algeria/family-visa`,
+          url: `country_view/${country}/${visaSlug}`,
           method: "GET",
+          // country_view/argentina/family-visa
         };
       },
     }),
   }),
 });
 
+// getSingleCountry: builder.query({
+//   query: (id) => {
+//     console.log("find id", id);
+//     return {
+//       url: `/visainfo/${id}`,
+//       method: "GET",
+//     };
+//   },
+// }),
+
 export const {
   useSearchAllVisaCategoryQuery,
   useGetVisaCountryQuery,
   useCountryDetailsQuery,
 } = getAllCountry;
-
-export default getAllCountry; // Add this line to make getAllCountry the default export

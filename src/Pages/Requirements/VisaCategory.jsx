@@ -6,13 +6,13 @@ const VisaCategory = ({ vCategory }) => {
         Visa Category
       </h3>
       <p>
-        <span className="font-bold">Name:</span> {vCategory.name}
+        <span className="font-bold">Name:</span> {vCategory?.name}
       </p>
       <p>
-        <span className="font-bold">Slug:</span> {vCategory.slug}
+        <span className="font-bold">Slug:</span> {vCategory?.slug}
       </p>
       <p>
-        <span className="font-bold">Details:</span> {vCategory.short_details}
+        <span className="font-bold">Details:</span> {vCategory?.short_details}
       </p>
     </div>
   );
