@@ -13,7 +13,7 @@ export const baseApi = createApi({
 });
 
 const baseQueryCountry = fetchBaseQuery({
-  baseUrl: "https://restcountries.com/v3.1/all",
+  baseUrl: "https://cms.visathing.com/api/",
 });
 
 export const baseApiCountry = createApi({

@@ -1,6 +1,6 @@
-import { baseVisaApi } from "../../../app/baseApi";
+import { baseApiCountry } from "../../../app/baseApi";
 
-const getAllCountry = baseVisaApi.injectEndpoints({
+const getAllCountry = baseApiCountry.injectEndpoints({
   endpoints: (builder) => ({
     searchAllVisaCategory: builder.query({
       query: (arts) => ({
