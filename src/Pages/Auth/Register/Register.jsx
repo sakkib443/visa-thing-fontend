@@ -1,18 +1,52 @@
-import { Link } from "react-router-dom";
+import { Link, Navigate, useNavigate } from "react-router-dom";
 import { useState } from "react";
 import { useForm } from "react-hook-form";
 import { AiFillEye, AiFillEyeInvisible } from "react-icons/ai";
 import logo from "/7bfeedd.png";
 import LoginBanner from "../../../components/Banner/LoginBanner";
+import { setCredentials } from "../../../redux/features/authentication/authSlice";
+import { useDispatch } from "react-redux";
+import { useSignupUserMutation } from "../../../redux/features/authentication/authApi";
+import Swal from "sweetalert2";
 
 const Register = () => {
     const [showPassword, setShowPassword] = useState(false);
     const [showConfirmPassword, setShowConfirmPassword] = useState(false);
+    const navigate = useNavigate()
+    // redux related
+    const dispatch = useDispatch()
+    const [signupUser] = useSignupUserMutation()
 
     const { register, handleSubmit, formState: { errors }, watch } = useForm();
-    const onSubmit = data => {
+    const onSubmit = async (data) => {
         console.log(data);
         // handle form submission
+        const { firstName: name, email, password, confirmPassword } = data
+        console.log('modified form', name, email, password, confirmPassword)
+        // short form data
+        const phone = "01756434489"
+        const role = "admin"
+        const shortFormData = {
+            name, email, password, confirmPassword, phone, role
+        }
+        console.log(shortFormData)
+        try {
+            const user = await signupUser(shortFormData).unwrap();
+            console.log(user)
+            Swal.fire({
+                position: "center-center",
+                icon: "success",
+                title: "Registered Successfully",
+                showConfirmButton: false,
+                timer: 1000
+            });
+            dispatch(setCredentials({ user, token: user.token }));
+            // TODO: Register is not giving token
+            //redirect to appropriate routes
+            navigate('/login')
+        } catch (error) {
+            console.error("Failed to signup: ", error);
+        }
     };
 
     const password = watch("password");
@@ -141,6 +175,6 @@ const Register = () => {
             </div>
         </div>
     );
-}; 
+};
 
 export default Register;

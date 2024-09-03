@@ -4,27 +4,59 @@ import { useForm } from "react-hook-form";
 import { AiFillEye, AiFillEyeInvisible } from "react-icons/ai";
 import logo from "/7bfeedd.png";
 import LoginBanner from "../../../components/Banner/LoginBanner";
+import { useDispatch } from "react-redux";
+import { setCredentials } from "../../../redux/features/authentication/authSlice";
+import { useSigninUserMutation } from "../../../redux/features/authentication/authApi";
 
 const Login = () => {
   const [showPassword, setShowPassword] = useState(false);
-  const navigate = useNavigate();
-  const {
-    register,
-    handleSubmit,
-    formState: { errors },
-  } = useForm({
+
+  const navigate = useNavigate()
+
+
+  // redux related
+  const dispatch = useDispatch()
+  const [signinUser] = useSigninUserMutation()
+
+  const { register, handleSubmit, formState: { errors } } = useForm({
     defaultValues: {
-      email: "admin@visa.com",
-      password: "123456",
-    },
+      email: "xordiboy@gmail.com",
+      password: "123456"
+    }
   });
-  const onSubmit = (data) => {
-    console.log(data);
-    //demo purpose
-    if (data.email === "admin@visa.com") {
-      navigate("/dashboard/admin/admin-profile");
-    } else if (data.email === "user@visa.com") {
-      navigate("/dashboard/user/user-profile");
+
+  // form submission
+  const onSubmit = async (formData) => {
+    console.log(formData);
+
+    // login
+    try {
+      const result = await signinUser(formData);
+      console.log("Signin result:", result.data.data); // Log the entire result to inspect its structure
+      const trimmedData = result?.data?.data
+
+      if (result?.data) {
+        const user = trimmedData.user; // User object
+        const token = trimmedData.token; // Token
+
+        if (user && token) {
+          dispatch(setCredentials({ user, token }));
+          console.log("User signed in successfully", user);
+          //redirect to appropriate routes
+          if (user.role === "admin") {
+            navigate('/dashboard/admin/admin-profile')
+          } else if (user.role === "user") {
+            navigate('/dashboard/user/user-profile')
+          }
+
+        } else {
+          console.error("User data or token is undefined");
+        }
+      } else if (result?.error) {
+        console.error("Failed to signin: ", result.error);
+      }
+    } catch (error) {
+      console.error("Failed to signin: ", error);
     }
   };
 
@@ -96,6 +128,7 @@ const Login = () => {
               )}
             </div>
             <div className="flex justify-between items-center text-sm">
+
               <label className="flex items-center space-x-2 text-rose-700">
                 <input
                   type="checkbox"
@@ -108,6 +141,7 @@ const Login = () => {
                 to="/send-reset-password-link"
                 className="text-xs underline text-rose-700"
               >
+
                 Forgot Password?
               </Link>
             </div>

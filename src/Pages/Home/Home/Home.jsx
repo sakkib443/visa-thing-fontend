@@ -1,3 +1,4 @@
+import { useSelector } from "react-redux";
 import Explore from "../HomeComponents/Explore/Explore";
 import Hero from "../HomeComponents/Hero/Hero";
 import ServiceComponent from "../HomeComponents/ServiceComponents/ServiceComponent";

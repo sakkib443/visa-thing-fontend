@@ -20,13 +20,13 @@ import ApplicationForm from "../components/ApplicationForm/ApplicationForm";
 import AdminProfile from "../Pages/AdminDashboard/AdminProfile/AdminProfile";
 import UserProfile from "../Pages/UserDashboard/UserProfile/UserProfile";
 import NotFound from "../Pages/Shared/NotFound/NotFound";
-import Error404 from "../Pages/Error/Error";
+import ProtectedRoute from "../Pages/Shared/ProtectedRoute/ProtectedRoute";
+
 
 const router = createBrowserRouter([
   {
     path: "/",
     element: <Root></Root>,
-    errorElement: <Error404 />,
     children: [
       {
         path: "/",
@@ -40,46 +40,45 @@ const router = createBrowserRouter([
         path: "/contact",
         element: <Contact />,
       },
-      // {
-      //   path: `requirements/student-visa`,
-      //   element: <Requirements />,
-      // },
       {
-        path: `requirements/:country/:visaSlug`,
+        path: `requirements/student-visa`,
         element: <Requirements />,
       },
-      // {
-      //   path: `requirements/:country/tourist-visa`,
-      //   element: <Requirements />,
-      // },
-      // {
-      //   path: `requirements/:country/family-visa`,
-      //   element: <Requirements />,
-      // },
+      {
+        path: `requirements/:country/business-visa`,
+        element: <Requirements />,
+      },
+      {
+        path: `requirements/:country/tourist-visa`,
+        element: <Requirements />,
+      },
+      {
+        path: `requirements/:country/family-visa`,
+        element: <Requirements />,
+      },
     ],
   },
   {
     path: "dashboard/admin",
-    element: <AdminDashboard />,
-    errorElement: <Error404 />,
+    element: <ProtectedRoute><AdminDashboard /></ProtectedRoute>,
     children: [
       {
         path: "admin-profile",
-        element: <AdminProfile />,
+        element: <AdminProfile />
       },
       {
         path: "admin-pending-applications",
-        element: <PendingApplications />,
+        element: <PendingApplications />
       },
       {
         path: "admin-approved-applications",
-        element: <ApprovedApplications />,
+        element: <ApprovedApplications />
       },
       {
         path: "admin-declined-applications",
-        element: <DeclinedApplications />,
+        element: <DeclinedApplications />
       },
-    ],
+    ]
   },
   {
     path: "dashboard/user",
@@ -87,21 +86,21 @@ const router = createBrowserRouter([
     children: [
       {
         path: "user-profile",
-        element: <UserProfile />,
+        element: <UserProfile />
       },
       {
         path: "user-pending-applications",
-        element: <UserPendingApplications />,
+        element: <UserPendingApplications />
       },
       {
         path: "user-approved-applications",
-        element: <UserApprovedApplications />,
+        element: <UserApprovedApplications />
       },
       {
         path: "user-declined-applications",
-        element: <UserDeclinedApplications />,
+        element: <UserDeclinedApplications />
       },
-    ],
+    ]
   },
   {
     path: "/register",
@@ -122,11 +121,10 @@ const router = createBrowserRouter([
   {
     path: "/apply-now",
     element: <ApplicationForm />,
-  },
-  {
+  }, {
     path: "*",
-    element: <NotFound />,
-  },
+    element: <NotFound />
+  }
 ]);
 
 export default router;
