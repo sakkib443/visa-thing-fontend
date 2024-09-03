@@ -3,7 +3,7 @@ import { createApi, fetchBaseQuery } from "@reduxjs/toolkit/query/react";
 
 // Define a service using a base URL and expected endpoints
 const baseQuery = fetchBaseQuery({
-  baseUrl: "http://localhost:5000/api/",
+  baseUrl: "https://visa-thing-backend.vercel.app/api",
 });
 
 export const baseApi = createApi({
